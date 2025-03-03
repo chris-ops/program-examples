@@ -47,7 +47,7 @@ pub mod fungible_transferhook {
                 }
                 if state.nft_availability[nft_index] {
                     // Fetch AccountInfo from remaining_accounts using ata_pubkey
-                    if let Some(selected_ata) = ctx.remaining_accounts.iter().find(||true == state.nft_availability[nft_index]) {
+                    if let Some(selected_ata) = ctx.remaining_accounts.iter().find(|acc |true == state.nft_availability[nft_index]) {
                     let set_authority_cpi = SetAuthority {
                         account_or_mint: selected_ata.to_account_info(),
                         current_authority: ctx.accounts.nft_deposit.to_account_info(),
