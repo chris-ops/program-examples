@@ -22,6 +22,18 @@ use spl_tlv_account_resolution::{
     state::ExtraAccountMetaList,
 };
 use spl_transfer_hook_interface::instruction::ExecuteInstruction;
+use solana_program::{
+    account_info::{next_account_info, AccountInfo}, entrypoint, entrypoint::ProgramResult,
+    program_error::ProgramError, pubkey::Pubkey, program_pack::Pack, msg,
+    program::{invoke_signed}, rent::Rent, sysvar::Sysvar,
+};
+use spl_token_2022::{extension::transfer_hook::instruction::TransferHookInstruction, state::Account};
+use borsh::{BorshSerialize, BorshDeserialize};
+
+#[derive(BorshSerialize, BorshDeserialize, Debug)]
+struct TokenState {
+    ownership: [Pubkey; 10000], // Maps token ID (0-9999) to owner
+}
 
 declare_id!("1qahDxKHeCLZhbBU2NyMU6vQCQmEUmdeSEBrG5drffK");
 

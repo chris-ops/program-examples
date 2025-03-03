@@ -3,6 +3,7 @@
 [features]
 seeds = false
 skip-lint = false
+custom-heap = []
 
 [programs.localnet]
 transfer_hook = "DrWbQtYJGtsoRwzKqAbHKHKsCJJfpysudF39GBVFSxub"
@@ -11,7 +12,7 @@ transfer_hook = "DrWbQtYJGtsoRwzKqAbHKHKsCJJfpysudF39GBVFSxub"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
+cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
